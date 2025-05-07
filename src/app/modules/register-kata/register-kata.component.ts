@@ -18,7 +18,6 @@ export class RegisterKataComponent implements OnInit {
     const user = JSON.parse(sessionStorage.getItem('token') || '{}');
     this.kataService.getKataByUserId(user.id).subscribe({
       next: (res:any) => {
-        console.log('Katas obtenidas:', res);
         this.katas = res;
       }
       ,error: (err:any) => {
@@ -27,25 +26,18 @@ export class RegisterKataComponent implements OnInit {
     });
   }
   registrarse(kata_id:any){
-    console.log('Kata seleccionada:', kata_id);
    this.confirmation = false
   }
 
-  // Método para cargar la información de una kata
   cargarInformacionKata(kata: any) {
     this.kataSeleccionada = kata;
-    console.log('Información de la kata:', this.kataSeleccionada);
     this.confirmation = false
   }
 
-  // Método para confirmar la acción
   confirmarKata() {
     const user = JSON.parse(sessionStorage.getItem('token') || '{}');
-
-    console.log('Kata confirmada:', this.kataSeleccionada);
     this.participantsService.createParticipant(this.kataSeleccionada.id, user.id).subscribe({
       next: (res:any) => {
-        console.log('Registro exitoso:', res);
         alert('Registro exitoso');
         this.kataSeleccionada = null;
         this.confirmation = true
@@ -57,11 +49,9 @@ export class RegisterKataComponent implements OnInit {
     });
   }
 
-  // Método para volver a la vista anterior
   volver() {
     console.log('Volver a la vista anterior');
     this.confirmation = true
   }
-  
 
 }

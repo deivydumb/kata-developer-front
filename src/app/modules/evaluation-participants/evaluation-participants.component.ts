@@ -22,11 +22,9 @@ export class EvaluationParticipantsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
- /*    this.cargarParticipantes(); */
     this.katasService.getKatas().subscribe({
       next: (res:any) => {
         this.katas = res.body;
-        console.log('Katas cargadas:', this.katas); 
       },
       error: (err:any) => {
         console.error('Error al cargar katas:', err);
@@ -35,12 +33,7 @@ export class EvaluationParticipantsComponent implements OnInit {
   }
 
 onSubmit(kata_id:any){
-console.log('Kata seleccionada:', kata_id);
 this.router.navigate(['/evaluation', kata_id]);
 
 }
-  evaluar(participante: any): void {
-    console.log('Evaluando a:', participante);
-    // Lógica para evaluación individual
-  }
 }

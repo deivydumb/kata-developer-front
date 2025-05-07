@@ -44,7 +44,6 @@ export class EvaluationComponent implements OnInit {
     this.participantesService.getParticipantsForKata(this.kataId,user.id).subscribe({
       next: (res: any) => {
         this.participantes = res;
-        console.log('Participantes:', this.katas);
       },
       error: (err: any) => {
         console.error('Error al cargar katas:', err);
@@ -55,7 +54,6 @@ export class EvaluationComponent implements OnInit {
     const user = JSON.parse(sessionStorage.getItem('token') || '{}');
     this.evaluationService.createEvaluation(this.evaluacionForm.value, user.id,this.participacionId).subscribe({
       next: (res: any) => {
-        console.log('Evaluación creada:', res);
         alert('Evaluación guardada exitosamente');
         this.evaluacionForm.reset();
         this.evaluation = true

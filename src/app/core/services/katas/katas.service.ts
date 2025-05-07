@@ -20,7 +20,6 @@ constructor(private http: HttpClient) { }
       "fecha_inicio": data.fecha_inicio,
       "fecha_fin": data.fecha_fin
     }
-    console.log('body', body);
     return this.http.post(`${this.apiURL}/creation`, body);
    }
 
