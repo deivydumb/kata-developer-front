@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Ranking de Participantes</h2>
+
+  <!-- Tabla de Katas -->
+  <div *ngIf="rankingElement" class="card">
+    <div class="card-body">
+      <table class="table table-bordered table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de Inicio</th>
+            <th scope="col">Fecha de Fin</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of katas; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.descripcion }}</td>
+            <td>{{ p.fecha_inicio }}</td>
+            <td>{{ p.fecha_fin }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary" (click)="kataRanking(p.id)">Ranking</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Tabla de Participantes -->
+  <div *ngIf="!rankingElement" class="card">
+    <div class="card-body">
+      <table class="table table-bordered table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre de Usuario</th>
+            <th scope="col">Kata</th>
+            <th scope="col">Ponderado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of participantes; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ p.nombre_usuario }}</td>
+            <td>{{ p.kata_nombre }}</td>
+            <td>
+              <span 
+                class="badge fs-6"
+                [ngClass]="{
+                  'bg-success': p.ponderado >= 7.5,
+                  'bg-warning text-dark': p.ponderado < 7.5 && p.ponderado >= 4,
+                  'bg-danger': p.ponderado < 4
+                }">
+                {{ p.ponderado | number:'1.1-2' }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3" [routerLink]="navegation">Volver</button>
+</div>

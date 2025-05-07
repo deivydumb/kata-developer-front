@@ -1,0 +1,56 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">Panel de Administración</h2>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-5 mb-4">
+        <div class="card h-100 shadow-sm border-primary" style="cursor: pointer;" routerLink="/admin/create-kata">
+          <div class="card-body text-center">
+            <i class="fas fa-plus-circle text-primary mb-3" style="font-size: 3rem;"></i>
+            <h4 class="card-title">Crear Nueva Kata</h4>
+            <p class="card-text">Diseña nuevos desafíos de programación para los participantes</p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <button class="btn btn-outline-success w-100"
+            [routerLink]="['/admin/create-kata']"
+            >
+
+              Acceder <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="col-md-5 mb-4">
+        <div class="card h-100 shadow-sm border-success" style="cursor: pointer;" >
+          <div class="card-body text-center">
+            <i class="fas fa-user-check text-success mb-3" style="font-size: 3rem;"></i>
+            <h4 class="card-title">Evaluar Participantes</h4>
+            <p class="card-text">Revisa y califica las soluciones presentadas por los usuarios</p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <button class="btn btn-outline-success w-100"
+            [routerLink]="['/admin/evaluation']">
+              Acceder <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 mb-4">
+        <div class="card h-100 shadow-sm border-success" style="cursor: pointer;" >
+          <div class="card-body text-center">
+            <i class="fas fa-user-check text-success mb-3" style="font-size: 3rem;"></i>
+            <h4 class="card-title">Ranking de las katas</h4>
+            <p class="card-text">Revisa y califica las soluciones presentadas por los usuarios</p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <button class="btn btn-outline-success w-100"
+            [routerLink]="['/ranking']">
+
+              Acceder <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
