@@ -23,18 +23,13 @@ export class LoginComponent implements OnInit {
     }
     this.usersService.login(this.username, this.password).subscribe({
       next: (response: any) => {
-        console.log('response', response.body);
         if (response.statusCode === 200) {
-          console.log('Login successful:', response.body.user);
           sessionStorage.setItem('token', JSON.stringify(response.body.user));
-          console.log("Rol del usuario",response.body.user.rol)
           
           if(response.body.user.rol === 'JURADO'){
             this.router.navigate(['/admin']);
-            console.log('Rol de administrador');
           }else if(response.body.user.rol === 'PARTICIPANTE'){  
             this.router.navigate(['/participant']);
-            console.log('Rol de participante');
           }
         }else if(response.statusCode === 401){
           console.log('Login failed:', response.body);

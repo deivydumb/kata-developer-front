@@ -24,17 +24,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registroForm.valid) {
-      console.log('Datos enviados:', this.registroForm.value);
       this.usersService.createUser(this.registroForm.value).subscribe({
         next: (response: any) => {
-          console.log('response', response.body);
           if (response.statusCode === 201) {
-            console.log('Registro exitoso:', response.body);
             this.router.navigate(['']);
 
           } else if (response.statusCode === 401) {
             console.log('Registro fallido:', response.body);
-            // Aquí puedes mostrar un mensaje de error al usuario
           }
         },
         error: (error: any) => {

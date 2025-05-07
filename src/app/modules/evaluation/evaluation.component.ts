@@ -68,7 +68,6 @@ export class EvaluationComponent implements OnInit {
     }
 
   evaluar(participante: any): void {
-    console.log('Evaluando a:', participante);
     this.evaluation = false
     this.participacionId = participante;
   }

@@ -15,7 +15,6 @@ export class UsersService {
     const body = { 
       "email":email, 
       "password": password };
-      console.log('body', body);
     return this.http.post(`${this.apiURL}/auth`, body);
   }
   
@@ -28,7 +27,6 @@ export class UsersService {
       "password": data.password,
       "rol": "PARTICIPANTE"
   }
-  console.log('body', body);
     return this.http.post(`${this.apiURL}/creation`, body);
   }
 }
