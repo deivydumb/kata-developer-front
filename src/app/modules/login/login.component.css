@@ -1,0 +1,23 @@
+/* login.component.css */
+
+.container {
+    max-width: 500px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .card-body {
+    padding: 30px;
+  }
+  
+  .btn-block {
+    margin-top: 20px;
+  }
+  

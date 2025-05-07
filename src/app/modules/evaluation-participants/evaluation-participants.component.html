@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2 class="mb-3 text-center">Listado de Katas</h2>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha de Fin</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kata of katas">
+        <td>{{ kata.id }}</td>
+        <td>{{ kata.nombre }}</td>
+        <td>{{ kata.descripcion }}</td>
+        <td>{{ kata.fecha_inicio }}</td>
+        <td>{{ kata.fecha_fin }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-primary"
+            (click)="onSubmit(kata.id)"
+          >
+            Ver Participantes
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

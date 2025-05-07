@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Ranking de Participantes</h2>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-bordered table-hover text-center align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Calificación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of participantes; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ p.nombre }}</td>
+              <td>{{ p.email }}</td>
+              <td>{{ p.rol }}</td>
+              <td>
+                <span class="badge bg-success fs-6">{{ p.calificacion }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

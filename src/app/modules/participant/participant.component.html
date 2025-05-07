@@ -1,0 +1,75 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center mb-5">
+      <h1 class="display-4">Bienvenido al Kata Challenge</h1>
+      <p class="lead">Selecciona una opción para comenzar</p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div 
+        class="card feature-card h-100 shadow-sm bg-primary text-white"
+        (click)="navigateTo('/katas')"
+        style="cursor: pointer;"
+      >
+        <div class="card-body text-center p-4">
+          <div class="mb-4">
+            <i class="fa-solid fa-list-check" style="font-size: 3rem;"></i>
+          </div>
+          <h3 class="card-title">Katas Disponibles</h3>
+          <p class="card-text">Explora y resuelve nuevos desafíos de programación</p>
+        </div>
+        <div class="card-footer bg-transparent border-0 py-3">
+          <button class="btn btn-light"
+          [routerLink]="['/register-kata']">
+            Acceder <i class="fas fa-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div 
+        class="card feature-card h-100 shadow-sm bg-success text-white"
+        (click)="navigateTo('/results')"
+        style="cursor: pointer;"
+      >
+        <div class="card-body text-center p-4">
+          <div class="mb-4">
+            <i class="fa-solid fa-chart-line" style="font-size: 3rem;"></i>
+          </div>
+          <h3 class="card-title">Mis Resultados</h3>
+          <p class="card-text">Revisa tu progreso y resultados anteriores</p>
+        </div>
+        <div class="card-footer bg-transparent border-0 py-3">
+          <button class="btn btn-light"
+          [routerLink]="['/results']">
+            Acceder <i class="fas fa-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div 
+        class="card feature-card h-100 shadow-sm bg-warning text-white"
+        (click)="navigateTo('/ranking')"
+        style="cursor: pointer;"
+      >
+        <div class="card-body text-center p-4">
+          <div class="mb-4">
+            <i class="fa-solid fa-trophy" style="font-size: 3rem;"></i>
+          </div>
+          <h3 class="card-title">Ranking</h3>
+          <p class="card-text">Compara tu progreso con otros participantes</p>
+        </div>
+        <div class="card-footer bg-transparent border-0 py-3">
+          <button class="btn btn-light">
+            Acceder <i class="fas fa-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

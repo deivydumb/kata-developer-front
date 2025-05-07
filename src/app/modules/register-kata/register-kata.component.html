@@ -1,0 +1,53 @@
+<div *ngIf ='confirmation' class="container mt-4">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Lista de Katas Disponibles</h5>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-bordered table-striped table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Fecha de Inicio</th>
+              <th>Fecha de Fin</th>
+              <th>Descripción</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let kata of katas">
+              <td>{{ kata.id }}</td>
+              <td>{{ kata.nombre }}</td>
+              <td>{{ kata.fecha_inicio }}</td>
+              <td>{{ kata.fecha_fin }}</td>
+              <td>{{ kata.descripcion }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="cargarInformacionKata(kata)">Registrarse</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf ='!confirmation' class="container mt-4">
+    <div class="kata-info-container">
+        <h3>Información de la Kata</h3>
+      
+        <!-- Información de la Kata -->
+        <div *ngIf="kataSeleccionada">
+          <p><strong>Nombre:</strong> {{ kataSeleccionada.nombre }}</p>
+          <p><strong>Fecha de Inicio:</strong> {{ kataSeleccionada.fecha_inicio }}</p>
+          <p><strong>Fecha de Inicio:</strong> {{ kataSeleccionada.fecha_fin }}</p>
+          <p><strong>Descripción:</strong> {{ kataSeleccionada.descripcion }}</p>
+        </div>
+      
+        <!-- Botones de Confirmar y Volver -->
+        <div class="btn-container">
+          <button class="btn btn-success" (click)="confirmarKata()">Confirmar</button>
+          <button class="btn btn-secondary" (click)="volver()">Volver</button>
+        </div>
+      </div>
+  </div>
+  

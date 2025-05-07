@@ -1,0 +1,72 @@
+<!-- Lista de Participantes -->
+<div *ngIf="evaluation" class="container mt-5">
+    <h2 class="mb-4 text-center">Participantes de la Kata #{{ kataId }}</h2>
+  
+    <table class="table table-bordered table-striped table-hover shadow-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of participantes; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ p.rol }}</td>
+          <td>
+            <button class="btn btn-sm btn-success" (click)="evaluar(p.participacion_id)">
+              Evaluar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="participantes.length === 0" class="alert alert-warning text-center mt-3">
+      No hay participantes registrados.
+    </div>
+  </div>
+  
+  <!-- Formulario de Evaluación -->
+  <div *ngIf="!evaluation" class="container mt-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h4>Formulario de Evaluación</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="evaluacionForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="innovacion" class="form-label">Innovación</label>
+            <input type="number" step="0.1" class="form-control" id="innovacion" formControlName="innovacion" required>
+          </div>
+  
+          <div class="mb-3">
+            <label for="liderazgo" class="form-label">Liderazgo</label>
+            <input type="number" step="0.1" class="form-control" id="liderazgo" formControlName="liderazgo" required>
+          </div>
+  
+          <div class="mb-3">
+            <label for="conocimiento" class="form-label">Conocimiento</label>
+            <input type="number" step="0.1" class="form-control" id="conocimiento" formControlName="conocimiento" required>
+          </div>
+  
+          <div class="mb-3">
+            <label for="comentario" class="form-label">Comentario</label>
+            <textarea class="form-control" id="comentario" rows="3" formControlName="comentario" required></textarea>
+          </div>
+  
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success" [disabled]="evaluacionForm.invalid">
+              Enviar Evaluación
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
