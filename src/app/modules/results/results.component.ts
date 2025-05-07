@@ -11,7 +11,8 @@ export class ResultsComponent implements OnInit {
   constructor(private readonly participantsService: ParticipantsService) { }
 
   ngOnInit(): void {
-    this.participantsService.getParticipationsResults(1).subscribe({
+    const user = JSON.parse(sessionStorage.getItem('token') || '{}');
+    this.participantsService.getParticipationsResults(user.id).subscribe({
       next: (res: any) => {
         console.log('Resultados obtenidos:', res);
         this.evaluations= res;
