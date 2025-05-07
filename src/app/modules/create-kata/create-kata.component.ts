@@ -39,12 +39,10 @@ export class CreateKataComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Datos del formulario:', this.kataForm.value);
     if (this.kataForm.valid) {
       const formData = this.kataForm.value;
       this.katasService.createKata(formData).subscribe({
         next: (res:any) => {
-          console.log('Kata creada:', res);
           alert('Kata guardada exitosamente');
           this.kataForm.reset();
           this.router.navigate(['/admin']);

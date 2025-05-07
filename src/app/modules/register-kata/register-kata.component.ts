@@ -15,6 +15,10 @@ export class RegisterKataComponent implements OnInit {
   constructor(private readonly kataService:KatasService, private readonly participantsService: ParticipantsService) { }
 
   ngOnInit(): void {
+   this.kataSelection();
+  }
+
+  kataSelection(){
     const user = JSON.parse(sessionStorage.getItem('token') || '{}');
     this.kataService.getKataByUserId(user.id).subscribe({
       next: (res:any) => {
@@ -41,6 +45,7 @@ export class RegisterKataComponent implements OnInit {
         alert('Registro exitoso');
         this.kataSeleccionada = null;
         this.confirmation = true
+        this.kataSelection();
       },
       error: (err:any) => {
         console.error('Error al registrar kata:', err);

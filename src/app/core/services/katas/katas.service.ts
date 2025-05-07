@@ -28,6 +28,7 @@ constructor(private http: HttpClient) { }
       return this.http.get(`${this.apiURL}/user`, { params });
     }
     getKataRanking(kata_id:any){
+      console.log('kata_id', kata_id);
       const params = new HttpParams().set('kata_id', kata_id);
       return this.http.get(`https://bmby56n8je.execute-api.us-east-1.amazonaws.com/v1/ranking`, { params });
     }

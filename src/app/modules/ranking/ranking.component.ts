@@ -19,7 +19,6 @@ navegation: string[] = []
     this.NavegatioUser();
     this.kataServices.getKatas().subscribe({
       next: (res:any) => {
-        console.log('Katas cargadas:', res);
         this.katas = res.body;
       }
       , error: (err:any) => {
@@ -40,12 +39,10 @@ navegation: string[] = []
   }
 
 
-  kataRanking() {
-    
-    const kataID = this.katas[0]?.id;
-  
+  kataRanking(id: any){ 
+    console.log('Kata seleccionada:', id);
+    const kataID = id;
     this.rankingElement = false;
-  
     this.kataServices.getKataRanking(kataID).subscribe({
       next: (res: any) => {
         const agrupados: { [key: string]: { total: number, count: number, data: any } } = {};

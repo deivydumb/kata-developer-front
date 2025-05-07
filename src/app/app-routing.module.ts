@@ -10,18 +10,20 @@ import { RankingComponent } from './modules/ranking/ranking.component';
 import { EvaluationComponent } from './modules/evaluation/evaluation.component';
 import { RegisterKataComponent } from './modules/register-kata/register-kata.component';
 import { ResultsComponent } from './modules/results/results.component';
+import { RoleGuard } from './guards/role.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'participant', component: ParticipantComponent },
-  { path : 'admin', component: AdminComponent},
-  { path: 'admin/create-kata', component: CreateKataComponent },
-  { path: 'admin/evaluation', component: EvaluationParticipantsComponent },
+  { path : 'admin', component: AdminComponent , canActivate: [RoleGuard]},
+  { path: 'admin/create-kata', component: CreateKataComponent, canActivate: [RoleGuard] },
+  { path: 'admin/evaluation', component: EvaluationParticipantsComponent, canActivate: [RoleGuard] },
   { path: 'ranking', component: RankingComponent },
-  { path: 'evaluation/:kataId', component: EvaluationComponent },
+  { path: 'evaluation/:kataId', component: EvaluationComponent, canActivate: [RoleGuard] },
   { path: 'register-kata', component: RegisterKataComponent },
   { path: 'results', component: ResultsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

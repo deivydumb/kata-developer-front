@@ -20,6 +20,8 @@ export class ResultsComponent implements OnInit {
         console.error('Error al cargar resultados:', err);
       }
     });
+    console.log('Evaluaciones:', this.evaluations);
   }
+  
 
 }

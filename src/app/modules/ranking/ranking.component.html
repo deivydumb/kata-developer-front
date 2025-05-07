@@ -23,7 +23,7 @@
             <td>{{ p.fecha_inicio }}</td>
             <td>{{ p.fecha_fin }}</td>
             <td>
-              <button class="btn btn-sm btn-primary" (click)="kataRanking()">Ranking</button>
+              <button class="btn btn-sm btn-primary" (click)="kataRanking(p.id)">Ranking</button>
             </td>
           </tr>
         </tbody>
@@ -59,7 +59,6 @@
                 {{ p.ponderado | number:'1.1-2' }}
               </span>
             </td>
-            <td>{{ p.fecha_fin }}</td>
           </tr>
         </tbody>
       </table>
