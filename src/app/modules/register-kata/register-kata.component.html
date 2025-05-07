@@ -1,10 +1,10 @@
-<div *ngIf ='confirmation' class="container mt-4">
+<div *ngIf="confirmation" class="container mt-4">
     <div class="card shadow">
       <div class="card-header bg-primary text-white">
         <h5 class="mb-0">Lista de Katas Disponibles</h5>
       </div>
       <div class="card-body p-0">
-        <table class="table table-bordered table-striped table-hover mb-0">
+        <table class="table table-bordered table-striped table-hover mb-0" *ngIf="katas.length > 0">
           <thead class="table-dark">
             <tr>
               <th>ID</th>
@@ -28,9 +28,15 @@
             </tr>
           </tbody>
         </table>
+  
+        <div *ngIf="katas.length === 0" class="p-3 text-center">
+          <p class="mb-0 text-muted">No hay katas disponibles en este momento.</p>
+        </div>
       </div>
     </div>
+    <button class="btn btn-primary mt-3" [routerLink]="['/participant']">Volver</button>
   </div>
+  
   <div *ngIf ='!confirmation' class="container mt-4">
     <div class="kata-info-container">
         <h3>Información de la Kata</h3>

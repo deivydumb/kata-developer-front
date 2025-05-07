@@ -30,8 +30,9 @@
     <div *ngIf="participantes.length === 0" class="alert alert-warning text-center mt-3">
       No hay participantes registrados.
     </div>
+    <button class="btn btn-primary mt-3" [routerLink]="['/admin']">Volver</button>
   </div>
-  
+ 
   <!-- Formulario de Evaluación -->
   <div *ngIf="!evaluation" class="container mt-5">
     <div class="card shadow-sm">

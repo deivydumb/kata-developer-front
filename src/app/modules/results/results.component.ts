@@ -7,14 +7,14 @@ import { ParticipantsService } from 'src/app/core/services/participants/particip
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-
+  evaluations: any[] = [];
   constructor(private readonly participantsService: ParticipantsService) { }
 
   ngOnInit(): void {
     this.participantsService.getParticipationsResults(1).subscribe({
       next: (res: any) => {
         console.log('Resultados obtenidos:', res);
-
+        this.evaluations= res;
       }
       , error: (err: any) => {
         console.error('Error al cargar resultados:', err);

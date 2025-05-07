@@ -28,4 +28,8 @@ constructor(private http: HttpClient) { }
       const params = new HttpParams().set('user_id', id);
       return this.http.get(`${this.apiURL}/user`, { params });
     }
+    getKataRanking(kata_id:any){
+      const params = new HttpParams().set('kata_id', kata_id);
+      return this.http.get(`https://bmby56n8je.execute-api.us-east-1.amazonaws.com/v1/ranking`, { params });
+    }
   }
